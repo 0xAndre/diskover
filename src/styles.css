@@ -1,0 +1,55 @@
+body {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    overflow: hidden;
+    margin: 0;
+    font-family: "Lucida Console", "Courier New", monospace;
+    background-color: var(--background-color-1);
+    color: var(--font-color-1);
+
+}
+
+:root {
+    --background-color-1: #0D1016;
+    --background-color-2: #161A22;
+    --background-color-3: #121419;
+    --background-color-4: #1e2127;
+    --background-color-5: #c0942d;
+    --background-color-6: #3A5163;
+    --background-color-7: #3C5468;
+    --background-color-8: #291D10;
+    --background-color-9: #874F19;
+    --font-color-1: #7B8591;
+    --font-color-2: #9CA8B5;
+    --font-color-3: #d5d5d6;
+    --font-color-4: #35363b;
+    --font-color-5: #FFB02F;
+    --input-color: #161a22;
+    --color-error: #D93B56;
+    --color-success: #22A876;
+    --line-color-1: #17191f;
+}
+
+app-root {
+    width: 100%;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}

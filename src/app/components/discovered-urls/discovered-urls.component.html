@@ -1,0 +1,22 @@
+<section class="section">
+    <div class="header">
+        <div class="title">Discovered URLs/ </div>
+        <div class="domain">{{appGlobals.diskover.site}}</div>
+    </div>
+    <div class="general-info">
+        <div>
+            <img class="open-external-icon" src="assets/urlscan.png" title="Open in URLScan" (click)="openLink('https://urlscan.io/search/#'+appGlobals.diskover.site)">
+        </div>
+        <div class="general-title">URLs</div>
+    </div>
+    <div class="main-container">
+        <table>
+            <tr>
+                <th class="table-header">URLs Found</th>
+            </tr>
+            <tr *ngFor="let urlsDiscovered of appGlobals.diskover.urlsDiscovered">
+                <td><div class="table-entry" (click)="openLink(urlsDiscovered.url)">{{urlsDiscovered.url}}</div></td>
+            </tr>
+        </table>
+    </div>
+</section>

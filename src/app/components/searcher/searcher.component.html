@@ -1,0 +1,43 @@
+<section>
+    <div class="open" (click)="handleClick()">Open</div>
+    <input type="file" id="fileInput" (change)="handleFileInput($event)" accept=".json" style="display: none">
+    <div class="app-logo">
+        <img class="logo" src="assets/logo.png">
+    </div>
+
+    <div class="searcher">
+
+        <form [formGroup]="form" (ngSubmit)="start()">
+            <input class="search-input" type="text" placeholder="example.com www.example.com" formControlName="input"
+                (input)="form.get('input')?.markAsTouched()" [ngClass]="{
+                    'invalid-input': form.get('input')?.invalid && form.get('input')?.touched,
+                    'valid-input': form.get('input')?.valid && form.get('input')?.touched
+                }">
+            <div class="invalid-input-text"
+                *ngIf="form.get('input')?.errors?.['pattern'] && form.get('input')?.touched">
+                Invalid Input
+            </div>
+            <div class="valid-input-text" *ngIf="form.get('input')?.valid && form.get('input')?.touched">
+                Valid Input
+            </div>
+        </form>
+    </div>
+    <div class="options">
+        <label class="container">Code Snippets
+            <input type="checkbox" checked="checked" #codeSnippetsCheckbox>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">URLs Discovered
+            <input type="checkbox" checked="checked" #urlsDiscoveredCheckbox>
+            <span class="checkmark"></span>
+        </label>
+        <label class="container">Subdomain is Online
+            <input type="checkbox" checked="checked" #subdomainValidatorCheckbox>
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div *ngIf="loading" class="loading-state">
+        <div class="box"></div>
+        <div class="loading-text">{{loadingMessageState}}</div>
+    </div>
+</section>

@@ -1,0 +1,159 @@
+.section {
+    width: 80vw;
+    padding: 25px;
+}
+
+.header {
+    display: flex;
+    border-bottom: 2px solid var(--line-color-1);
+}
+
+.title {
+    color: var(--font-color-3);
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.domain {
+    margin-top: 8px;
+}
+
+.general-title {
+    color: var(--font-color-3);
+    font-size: 20px;
+    border-bottom: 2px solid var(--line-color-1);
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.general-content {
+    margin-left: 10px;
+    display: flex;
+}
+
+.general-info-site-image {
+    width: 130px;
+}
+
+.site-info {
+    display: flex;
+    height: 25px;
+    margin-left: 15px;
+}
+
+.site-info-url {
+    font-weight: 600;
+    margin-left: 9px;
+    margin-top: 2px;
+    color: var(--background-color-5);
+}
+
+.site-bullet {
+    margin-left: 15px;
+    display: flex;
+    margin-top: 20px;
+}
+
+.site-bullet-title {
+    font-weight: 600;
+    color: var(--font-color-4);
+    font-size: 13px;
+    margin-right: 18px;
+}
+
+.site-bullet-value {
+    color: var(--font-color-2);
+    font-size: 14px;
+}
+
+.stats-card {
+    width: 150px;
+    height: 150px;
+    background-color: var(--background-color-6);
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.stats-card:hover {
+    background-color: var(--background-color-7);
+}
+
+.stats-card-title {
+    color: var(--font-color-2);
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.stats-card-content {
+    text-align: center;
+    margin-top: 45px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.main-container {
+    height: 100%;
+    min-height: 700px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-color: #a3aabc #0000;
+    scrollbar-width: thin;
+    max-height: calc(100vh - 155px);
+    margin-top: 12px;
+    padding-right: 28px;
+    padding-bottom: 450px;
+}
+
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    border: 1px solid var(--background-color-4);
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: var(--background-color-4);
+}
+
+.table-header {
+    height: 40px;
+    background-color: var(--line-color-1);
+    color: var(--background-color-5);
+}
+
+.table-entry {
+    cursor: pointer;
+}
+
+.table-entry:hover {
+    color: var(--font-color-3);
+    text-decoration: underline;
+}
+
+.export {
+    font-size: 10px;
+    height: 8px;
+    background-color: var(--background-color-8);
+    color: var(--font-color-5);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.export:hover {
+    background-color: var(--background-color-9);
+}

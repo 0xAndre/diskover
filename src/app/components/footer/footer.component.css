@@ -1,0 +1,17 @@
+footer {
+    height: 25px;
+    width: 100%;
+    background-color: var(--background-color-2);
+    position: fixed;
+    bottom: 0;
+}
+
+.version {
+    float: right;
+    font-size: 12px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+}

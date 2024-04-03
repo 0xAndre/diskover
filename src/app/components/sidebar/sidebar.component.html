@@ -1,0 +1,14 @@
+<section class="sidebar">
+    <div class="side-top">
+        <img class="side-top-image" src="assets/logo.png">
+    </div>
+    <div class="menu">
+        <ul>
+            <li [routerLink]="['/overview']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Overview</li>
+            <li *ngIf="appGlobals.diskover.subdomains!.length != 0" [routerLink]="['/subdomains']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Subdomains</li>
+            <li *ngIf="appGlobals.diskover.ipsHistory!.length != 0" [routerLink]="['/ipshistory']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">IPs History</li>
+            <li *ngIf="appGlobals.diskover.grep!.length != 0" [routerLink]="['/grep']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Grep</li>
+            <li *ngIf="appGlobals.diskover.urlsDiscovered!.length != 0" [routerLink]="['/discoveredUrls']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Discovered URLs</li>
+        </ul>
+    </div>
+</section>

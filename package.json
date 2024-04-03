@@ -1,0 +1,89 @@
+{
+  "name": "diskover",
+  "version": "0.0.0",
+  "description": "OSINT tool for domain discovery",
+  "author": "https://github.com/0xAndre",
+  "main": "src/electron/main.js",
+  "repository": "https://github.com/0xAndre/diskover",
+  "build": {
+    "appId": "com.osint.diskover",
+    "productName": "Diskover",
+    "directories": {
+      "buildResources": "build"
+    },
+    "mac": {
+      "icon": "out/diskover/assets/icons/icon.icns",
+      "category": "public.app-category.utilities",
+      "target": "dmg"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "deleteAppDataOnUninstall": true
+    }
+  },
+  "keywords": [
+    "osint",
+    "discover",
+    "domain",
+    "subdomain",
+    "whois",
+    "dns",
+    "lookup",
+    "discovered",
+    "url"
+  ],
+  "scripts": {
+    "ng": "ng",
+    "client": "ng serve",
+    "start": "npm-run-all -p electron:serve ng:serve",
+    "build": "ng build --base-href ./",
+    "build:prod": "npm run build -- -c production",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "ng:serve": "ng serve",
+    "electron:serve": "wait-on tcp:4200 && npx electron . --serve",
+    "electron:build": "npm run build:prod && electron-builder build --publish=never"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^16.1.0",
+    "@angular/common": "^16.1.0",
+    "@angular/compiler": "^16.1.0",
+    "@angular/core": "^16.1.0",
+    "@angular/forms": "^16.1.0",
+    "@angular/platform-browser": "^16.1.0",
+    "@angular/platform-browser-dynamic": "^16.1.0",
+    "@angular/router": "^16.1.0",
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
+    "node-ping": "^0.1.0",
+    "npm-run-all": "^4.1.5",
+    "ping": "^0.4.4",
+    "puppeteer": "^22.6.1",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "wait-on": "^7.2.0",
+    "zone.js": "~0.13.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^16.1.7",
+    "@angular/cli": "~16.1.7",
+    "@angular/compiler-cli": "^16.1.0",
+    "@types/jasmine": "~4.3.0",
+    "electron": "^29.1.5",
+    "electron-builder": "^24.13.3",
+    "electron-debug": "^3.2.0",
+    "electron-reloader": "^1.2.3",
+    "jasmine-core": "~4.6.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.1.3"
+  }
+}

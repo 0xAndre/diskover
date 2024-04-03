@@ -1,0 +1,67 @@
+<section class="section">
+    <div class="header">
+        <div class="title">IPs History/ </div>
+        <div class="domain">{{appGlobals.diskover.site}}</div>
+    </div>
+    <div class="general-info">
+        <div class="general-title">History</div>
+    </div>
+    <div style="display: flex;">
+        <div class="main-container">
+            <div class="container">
+                <div class="rightbox">
+                    <div class="rb-container">
+                        <ul class="rb">
+
+                            <ng-container *ngFor="let history of appGlobals.diskover.ipsHistory">
+                                <li (click)="selectIP(history.lastSeen)" class="rb-item" ng-repeat="itembx">
+                                    <div class="timestamp">
+                                        {{history.lastSeen}}
+                                    </div>
+                                    <div class="item-ip" (click)="selectIP(history.lastSeen)">{{history.ip}}</div>
+                                    <div class="item-title">{{history.location}}</div>
+                                    <div class="item-title">{{history.ipOwner}}</div>
+                                </li>
+                            </ng-container>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="history-detail">
+            <div *ngIf="selectedIP?.ip" class="item-ip" (click)="openLink(selectedIP?.ip)">{{selectedIP?.ip}}</div>
+            <div *ngIf="selectedIP?.domain" class="ip-info">
+                <div class="ip-info-title">Domain</div>
+                <div class="ip-info-value">{{selectedIP?.domain}}</div>
+            </div>
+            <div *ngIf="selectedIP?.isp" class="ip-info">
+                <div class="ip-info-title">ISP</div>
+                <div class="ip-info-value">{{selectedIP?.isp}}</div>
+            </div>
+            <div *ngIf="selectedIP?.asn" class="ip-info">
+                <div class="ip-info-title">ASN</div>
+                <div class="ip-info-value">{{selectedIP?.asn}}</div>
+            </div>
+            <div *ngIf="selectedIP?.country" class="ip-info">
+                <div class="ip-info-title">Country</div>
+                <div class="ip-info-value">{{selectedIP?.country}}</div>
+            </div>
+            <div *ngIf="selectedIP?.stateRegion" class="ip-info">
+                <div class="ip-info-title">Region</div>
+                <div class="ip-info-value">{{selectedIP?.stateRegion}}</div>
+            </div>
+            <div *ngIf="selectedIP?.postalCode" class="ip-info">
+                <div class="ip-info-title">Postal Code</div>
+                <div class="ip-info-value">{{selectedIP?.postalCode}}</div>
+            </div>
+            <div *ngIf="selectedIP?.ip" class="external-sites">
+                <img class="external-logos" src="assets/shodan.png" (click)="openLink('https://www.shodan.io/search?query='+selectedIP?.ip)" title="Open {{selectedIP?.ip}} in shodan.io">
+                <img class="external-logos" src="assets/censys.png" (click)="openLink('https://search.censys.io/hosts/'+selectedIP?.ip)" title="Open {{selectedIP?.ip}} in Censys Search">
+                <img class="external-logos" src="assets/hunter.png" (click)="openLink('https://hunter.how/list?searchValue='+selectedIP?.ip)" title="Open {{selectedIP?.ip}} in Hunter">
+                <img class="external-logos" src="assets/zoomeye.png" (click)="openLink('https://www.zoomeye.hk/searchResult?q=ip%3A%22'+selectedIP?.ip+'%22')" title="Open {{selectedIP?.ip}} in zoomeye">
+            </div>
+        </div>
+    </div>
+</section>

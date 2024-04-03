@@ -1,0 +1,188 @@
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.app-logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px
+}
+
+.logo {
+    width: 250px;
+}
+
+.searcher {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 50px
+}
+
+.search-input {
+    border: none;
+    width: 400px;
+    height: 30px;
+    background-color: var(--input-color);
+    padding: 0px 8px 0px 8px;
+    color: var(--font-color-1);
+    font-size: 14px;
+}
+
+::placeholder {
+    font-size: 12px;
+    color: #4E545A;
+    opacity: 1;
+    /* Firefox */
+}
+
+.invalid-input {
+    border: 1px solid var(--color-error);
+}
+
+.valid-input {
+    border: 1px solid var(--color-success);
+}
+
+.invalid-input-text {
+    margin-top: 8px;
+    margin-left: 5px;
+    font-size: 10px;
+    color: var(--color-error);
+}
+
+.valid-input-text {
+    margin-top: 8px;
+    margin-left: 5px;
+    font-size: 10px;
+    color: var(--color-success);
+}
+
+.loading-state {
+    justify-content: center;
+    margin-top: 8%
+}
+
+.loading-text {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 25px;
+}
+
+.box {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 3px solid;
+    border-color: orange transparent;
+    animation: spin 1s infinite ease-out;
+    margin-left: 48%;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.open {
+    font-size: 10px;
+    height: 8px;
+    background-color: var(--background-color-8);
+    color: var(--font-color-5);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    float: right;
+    margin-right: 15px;
+    margin-top: 15px
+}
+
+.open:hover {
+    background-color: var(--background-color-9);
+}
+
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-size: 12px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-left: -20px
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 10px;
+    background-color: #eee;
+    margin-left: 20px;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked~.checkmark {
+    background-color: var(--background-color-5);
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked~.checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+    left: 2px;
+    top: -2px;
+    width: 5px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}

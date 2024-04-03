@@ -1,0 +1,14 @@
+<div *ngIf="subdomain?.url" class="ip-info">
+    <div class="ip-info-title">Address</div>
+    <div class="ip-info-value">{{subdomain!.url}}</div>
+</div>
+<div *ngIf="subdomain?.ip" class="ip-info">
+    <div class="ip-info-title">IP</div>
+    <div class="ip-info-value">{{subdomain!.ip}}</div>
+</div>
+<div *ngIf="subdomain?.ip" class="external-sites">
+    <img class="external-logos" src="assets/shodan.png" (click)="openLink('https://www.shodan.io/search?query='+subdomain!.ip)" title="Open {{subdomain!.ip}} in shodan.io">
+    <img class="external-logos" src="assets/censys.png" (click)="openLink('https://search.censys.io/hosts/'+subdomain!.ip)" title="Open {{subdomain!.ip}} in Censys Search">
+    <img class="external-logos" src="assets/hunter.png" (click)="openLink('https://hunter.how/list?searchValue='+subdomain!.ip)" title="Open {{subdomain!.ip}} in Hunter">
+    <img class="external-logos" src="assets/zoomeye.png" (click)="openLink('https://www.zoomeye.hk/searchResult?q=ip%3A%22'+subdomain!.ip+'%22')" title="Open {{subdomain!.ip}} in zoomeye">
+</div>

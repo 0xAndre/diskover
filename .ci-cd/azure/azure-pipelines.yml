@@ -1,0 +1,53 @@
+trigger:
+  branches:
+    include:
+      - main
+  paths:
+    include:
+      - "src"
+
+pool:
+  vmImage: "windows-latest"
+
+variables:
+  major: 0
+  minor: 1
+
+name: $(major).$(minor)$(rev:.rrr)
+
+steps:
+  
+  - task: SetJsonProperty@1
+    inputs:
+      JsonFile: 'package.json'
+      PropertyPath: 'version'
+      PropertyValue: '$(build.buildnumber)'
+    displayName: "update buildnumber at package.json"
+
+  - task: CmdLine@2
+    inputs:
+      script: "npm install -g electron-builder"
+    displayName: "install electron-builder"
+
+  - task: CmdLine@2
+    inputs:
+      script: "npm install"
+    displayName: "npm install"
+
+  - task: CmdLine@2
+    inputs:
+      script: "npm run electron:build"
+    displayName: "build windows app"
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: "dist"
+      Contents: "*.exe"
+      TargetFolder: "$(build.artifactstagingdirectory)"
+    displayName: "copy setup to artifact folder"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: "$(Build.ArtifactStagingDirectory)"
+      ArtifactName: "drop"
+      publishLocation: "Container"

@@ -1,0 +1,90 @@
+<section class="section">
+    <div class="header">
+        <div class="title">Overview/ </div>
+        <div class="domain">{{appGlobals.diskover.site}}</div>
+        <a id="export">
+            <div class="export">Export</div>
+        </a>
+    </div>
+    <div class="main-container">
+        <div class="general-info">
+            <div class="general-title">General Info</div>
+            <div class="general-content">
+                <!--<img class="general-info-site-image" src="assets/site.png">-->
+                <div class="site-info">
+                    <img *ngIf="showImage" src="{{appGlobals.diskover.faviconUrl}}" (error)="onImageError()">
+                    <div class="site-info-url">{{appGlobals.diskover.site}}</div>
+                </div>
+            </div>
+            <div class="site-bullet">
+                <div class="site-bullet-title">SITE TITLE</div>
+                <div class="site-bullet-value">{{appGlobals.diskover.siteName}}</div>
+            </div>
+            <div class="site-bullet">
+                <div class="site-bullet-title">DESCRIPTION</div>
+                <div class="site-bullet-value">{{appGlobals.diskover.description}}</div>
+            </div>
+        </div>
+        <div class="general-info">
+            <div class="general-title">Status</div>
+            <div class="general-content">
+                <div *ngIf="appGlobals.diskover.subdomains!.length != 0" [routerLink]="['/subdomains']" class="stats-card">
+                    <div class="stats-card-title">Subdomains</div>
+                    <div class="stats-card-content">{{appGlobals.diskover.subdomains!.length}}</div>
+                </div>
+                <div *ngIf="appGlobals.diskover.ipsHistory!.length != 0" [routerLink]="['/ipshistory']" class="stats-card">
+                    <div class="stats-card-title">IPs History</div>
+                    <div class="stats-card-content">{{appGlobals.diskover.ipsHistory!.length}}</div>
+                </div>
+                <div *ngIf="appGlobals.diskover.grep!.length != 0" [routerLink]="['/grep']" class="stats-card">
+                    <div class="stats-card-title">Code Snippets</div>
+                    <div class="stats-card-content">{{appGlobals.diskover.grep!.length}}</div>
+                </div>
+                <div *ngIf="appGlobals.diskover.urlsDiscovered!.length != 0" [routerLink]="['/discoveredUrls']" class="stats-card">
+                    <div class="stats-card-title">Discovered URLs</div>
+                    <div class="stats-card-content">{{appGlobals.diskover.urlsDiscovered!.length}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="general-info">
+            <div class="general-title">DNS Lookup</div>
+            <table>
+                <tr>
+                    <th class="table-header">Name</th>
+                    <th class="table-header">TTL</th>
+                    <th class="table-header">Class</th>
+                    <th class="table-header">Type</th>
+                    <th class="table-header">Priority</th>
+                    <th class="table-header">Data</th>
+                </tr>
+                <tr *ngFor="let dns of appGlobals.diskover.dns">
+                    <td>{{dns.name}}</td>
+                    <td>{{dns.ttl}}</td>
+                    <td>{{dns.class}}</td>
+                    <td>{{dns.type}}</td>
+                    <td>{{dns.priority}}</td>
+                    <td>{{dns.data}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="general-info">
+            <div class="general-title">Reverse Lookup</div>
+            <table>
+                <tr>
+                    <th class="table-header">Domain Name</th>
+                    <th class="table-header">Creation Date</th>
+                    <th class="table-header">Registrar</th>
+                </tr>
+                <tr *ngFor="let reverseWhois of appGlobals.diskover.reverseWhois">
+                    <td><span class="table-entry"
+                            (click)="openLink(reverseWhois.domainName)">{{reverseWhois.domainName}}</span></td>
+                    <td>{{reverseWhois.creationDate}}</td>
+                    <td>{{reverseWhois.registrar}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,8 @@
+<div style="display: flex;">
+    <app-sidebar *ngIf="appGlobals.diskover?.site"></app-sidebar>
+    <router-outlet></router-outlet>
+</div>
+
+<app-searcher *ngIf="!appGlobals.diskover?.site"></app-searcher>
+
+<app-footer></app-footer>

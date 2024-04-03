@@ -1,0 +1,19 @@
+<section class="section">
+    <div class="header">
+        <div class="title">grep/ </div>
+        <div class="domain">{{appGlobals.diskover.site}}</div>
+    </div>
+    <div class="general-info">
+        <div class="general-title">Code Snippets</div>
+    </div>
+    <div class="main-container">
+        <table>
+            <tr>
+                <th class="table-header">Code Snippet</th>
+            </tr>
+            <tr *ngFor="let grep of appGlobals.diskover.grep">
+                <td class="table-entry" [innerHTML]="grep.snippet" (click)="openLink(grep.id)"></td>
+            </tr>
+        </table>
+    </div>
+</section>

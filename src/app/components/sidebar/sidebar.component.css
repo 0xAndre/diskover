@@ -1,0 +1,38 @@
+.sidebar {
+    background-color: var(--background-color-3);
+    width: 280px;
+    height: 100vh;
+}
+
+.side-top {
+    border-bottom: 2px solid var(--line-color-1);
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+}
+
+.side-top-image {
+    width: 180px;
+}
+
+ul {
+    display: inline;
+}
+
+li {
+    -webkit-user-select: none;
+    display: flex;
+    padding: 8px;
+    border-left: 3px solid rgba(1,1,1,0);
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: var(--background-color-4);
+    border-left: 3px solid var(--background-color-5);
+}
+
+.active {
+    background-color: var(--background-color-4);
+    border-left: 3px solid var(--background-color-5);
+}

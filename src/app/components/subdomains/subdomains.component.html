@@ -1,0 +1,31 @@
+<section class="section">
+    <div class="header">
+        <div class="title">Subdomains/ </div>
+        <div class="domain">{{appGlobals.diskover.site}}</div>
+    </div>
+    <div style="display: flex;">
+        <div class="main-container">
+            <table>
+                <tr>
+                    <th class="table-header">Address</th>
+                    <th class="table-header">IP</th>
+                </tr>
+                <tr *ngFor="let subdomain of appGlobals.diskover.subdomains">
+                    <td style="display: flex;">
+                        <span class="subdomain" *ngIf="subdomain.isAlive" (click)="selectSubdomain(subdomain)">{{subdomain.url}}</span>
+                        <span *ngIf="!subdomain.isAlive && appGlobals.diskover.runSubdomain">{{subdomain.url}}</span>
+                        <span class="subdomain" *ngIf="!subdomain.isAlive && !appGlobals.diskover.runSubdomain" (click)="selectSubdomain(subdomain)">{{subdomain.url}}</span>
+                        
+                        <div *ngIf="subdomain.isAlive" class="isAlive">online</div>
+                        <div *ngIf="!subdomain.isAlive && appGlobals.diskover.runSubdomain" class="isNotAlive">offline</div>
+                        <div *ngIf="!subdomain.isAlive && !appGlobals.diskover.runSubdomain" class="maybeAlive">unknown</div>
+                    </td>
+                    <td><span class="subdomain" (click)="selectSubdomain(subdomain)">{{subdomain.ip}}</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <app-subdomains-viewer *ngIf="selectSubdomain" [subdomain]="selectedSubdomain"></app-subdomains-viewer>
+    </div>
+
+</section>
