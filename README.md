@@ -1,5 +1,7 @@
 # Diskover
 
+[![Build Status](https://dev.azure.com/xtres/Diskover/_apis/build/status%2Fdiskover.windows?branchName=main)](https://dev.azure.com/xtres/Diskover/_build/latest?definitionId=13&branchName=main)
+
 **Diskover** is an open-source tool designed for OSINT purposes. It empowers users to conduct reconnaissance activities on a target domain, providing insights such as subdomain enumeration, DNS lookup, code snippets related to the domain, IP history, and more. Equips you with the means to gather valuable information about a target domain efficiently.
 
 ![Diskover](.docs/diskover_searcher.png)
