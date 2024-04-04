@@ -1,7 +1,9 @@
-const { app, BrowserWindow, ipcMain, ipcRenderer, shell } = require('electron');
+const { app, BrowserWindow, ipcMain, ipcRenderer, shell, dialog } = require('electron');
 const path = require("path");
 const fs = require("fs");
 const url = require("url");
+const { autoUpdater } = require("electron-updater");
+
 // logger
 const logger = require('./logger');
 
@@ -12,6 +14,43 @@ var args = process.argv.slice(1),
     serve = args.some(function (val) { return val === '--serve'; });
 
 let win;
+
+// force update on development
+Object.defineProperty(app, 'isPackaged', {
+    get() {
+        return true;
+    }
+});
+
+// Set update file
+autoUpdater.updateConfigPath = path.join(__dirname, 'app-update.yml');
+
+// Disable auto update on quit
+autoUpdater.autoInstallOnAppQuit = false;
+
+// Disable pre-release version
+autoUpdater.allowPrerelease = false
+
+autoUpdater.on('update-downloaded', (info) => {
+
+    let options = {
+        'type': 'question',
+        'title': 'Update Available',
+        'message': "Update available, do you want to install?",
+        'icon': path.join(__dirname, '../favicon.ico'),
+        'buttons': [
+            'Yes',
+            'No'
+        ]
+    }
+    dialog.showMessageBox(win, options)
+        .then((result) => {
+            if (result.response === 0) {
+                autoUpdater.quitAndInstall();
+            }
+        })
+});
+
 
 function createWindow() {
     // Create the browser window.
@@ -71,7 +110,11 @@ function createWindow() {
 }
 
 // Create window on electron intialization
-app.on('ready', createWindow)
+app.on('ready', () => {
+    createWindow();
+    console.log('...')
+    autoUpdater.checkForUpdates();
+})
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
