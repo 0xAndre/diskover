@@ -42,7 +42,9 @@ steps:
   - task: CopyFiles@2
     inputs:
       SourceFolder: "dist"
-      Contents: "*.exe"
+      Contents: |
+        *.exe
+        latest.yml
       TargetFolder: "$(build.artifactstagingdirectory)"
     displayName: "copy setup to artifact folder"
 
