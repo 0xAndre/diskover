@@ -31,7 +31,7 @@ There are two ways to run/install and run Diskover:
 
 ### Option 1: Using the Executable
 
-You can download the pre-built executable file from the releases section of the repository. Simply download the `.exe` file corresponding to your operating system and run it on your machine.
+You can download the pre-built executable file from the releases section of the repository. Simply download the [file](https://github.com/0xAndre/diskover/releases).
 
 ### Option 2: Using the Source Code
 
