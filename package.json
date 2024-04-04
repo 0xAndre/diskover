@@ -22,6 +22,7 @@
       ]
     },
     "nsis": {
+      "artifactName": "diskover.setup.${version}.exe",
       "deleteAppDataOnUninstall": true
     }
   },
