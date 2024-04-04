@@ -3,7 +3,6 @@ const cheerio = require('cheerio');
 
 const logger = require('../logger');
 
-// Objeto de cabeçalhos
 const headers = {
     'Host': 'www.shodan.io',
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:124.0) Gecko/20100101 Firefox/124.0',
@@ -19,7 +18,6 @@ const headers = {
     'Sec-Fetch-User': '?1'
 };
 
-// Configuração do objeto axios
 const axiosConfig = {
     headers: headers
 };

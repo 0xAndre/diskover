@@ -14,6 +14,7 @@ const shodan = require('./../scrapers/shodan.scraper'); // Import scraper for Sh
 const dns = require('./../scrapers/dns.scraper'); // Import scraper for DNS
 const grep = require('./../scrapers/grep.scraper'); // Import scraper for grep
 const urlScan = require('./../scrapers/urlscan.scraper'); // Import scraper for URL scan
+const virusTotal = require('./../scrapers/virustotal.scraper') // Import scraper for Virus Total scan
 
 // Import tools
 const ping = require('./../tools/ping'); // Import ping tool for checking host availability
@@ -38,6 +39,8 @@ module.exports.initialize = async () => {
                 // Run grep scraper
                 await grep.scraper(payload.url, diskover);
             }
+
+            await virusTotal.scraper(payload.url, 0, diskover);
 
             // Run scraping functions in parallel for each URL
             const scrapingPromises = urls.map(async (url) => {
