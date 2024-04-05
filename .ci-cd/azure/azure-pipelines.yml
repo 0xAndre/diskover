@@ -13,7 +13,7 @@ variables:
   major: 0
   minor: 1
 
-name: $(major).$(minor)$(rev:.rrr)
+name: $(major).$(minor)$(rev:.r)
 
 steps:
   
